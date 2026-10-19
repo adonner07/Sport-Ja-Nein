@@ -1,0 +1,934 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sport im Ägypten-Urlaub</title>
+<meta name="description" content="Kurze Umfrage für unseren Ägypten-Urlaub – dauert 30 Sekunden.">
+<meta name="theme-color" content="#0a2c4c">
+<meta property="og:title" content="Wer macht im Urlaub Sport mit mir?">
+<meta property="og:description" content="Kurze Umfrage für unseren Ägypten-Urlaub – dauert 30 Sekunden.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;1,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light;
+  --sea-deep: #0a2c4c;
+  --sea: #0f4c7a;
+  --lagoon: #1bb8b2;
+  --lagoon-ink: #0a7a76;
+  --lagoon-wash: #e2f4f2;
+  --coral: #ff6a4d;
+  --coral-ink: #b4361c;
+  --sun: #ffbe2e;
+  --sand: #f6ecdb;
+  --sand-line: #e8d6b6;
+  --bg: #f4f9f9;
+  --surface: #ffffff;
+  --ink: #0c2033;
+  --muted: #4b6476;
+  --line: #cfe1e4;
+  --focus: #0a7a76;
+  --control-line: #6f939c;
+  --font-display: "Barlow Condensed", "Roboto Condensed", "Arial Narrow", sans-serif-condensed, "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+}
+
+[hidden] { display: none !important; }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  width: 100%;
+  max-width: calc(560px + 32px);
+  margin: 0 auto;
+  padding-left: var(--gutter-l);
+  padding-right: var(--gutter-r);
+}
+
+/* Kopfbereich: tiefes Rotes Meer, Sonne am Horizont */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--sea-deep);
+  color: #fff;
+  padding-top: max(24px, env(safe-area-inset-top, 0px));
+  padding-bottom: 46px;
+}
+.hero-inner { position: relative; z-index: 2; }
+.sun {
+  position: absolute;
+  z-index: 1;
+  right: max(6%, 18px, calc((100% - 592px) / 2 + 24px));
+  bottom: 14px;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--sun);
+  box-shadow:
+    0 0 0 10px var(--sea-deep), 0 0 0 12px rgba(255, 190, 46, .55),
+    0 0 0 22px var(--sea-deep), 0 0 0 24px rgba(255, 190, 46, .28);
+}
+.wave {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 40px;
+  display: block;
+}
+.wave .w1 { fill: var(--lagoon); }
+.wave .w2 { fill: var(--bg); }
+
+.eyebrow {
+  margin: 0 0 6px;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--lagoon);
+}
+.hero h1 {
+  margin: 0;
+  max-width: 13ch;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 11.5vw, 4rem);
+  line-height: .92;
+  letter-spacing: .005em;
+  text-transform: uppercase;
+}
+.hero h1 .hl { color: var(--sun); }
+.lede {
+  margin: 10px 0 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #cfe3ef;
+}
+
+/* Formular */
+main { padding-bottom: 32px; }
+form:focus, .result h2:focus { outline: none; }
+
+.q {
+  margin: 0;
+  padding: 22px 0 20px;
+  border: 0;
+  border-top: 1px solid var(--line);
+  min-width: 0;
+  scroll-margin-top: 16px;
+}
+form > .q:first-child { border-top: 0; padding-top: 12px; }
+
+.q-title {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  width: 100%;
+  margin: 0 0 12px;
+  padding: 0;
+  font-size: 1.16rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ink);
+}
+/* Legende als normaler Inhalt, damit der Abstand wie bei Frage 1 ist */
+legend.q-title { float: left; }
+legend.q-title + * { clear: both; }
+.qnum {
+  flex: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: .04em;
+  color: var(--lagoon-ink);
+}
+.hint {
+  margin: -6px 0 12px;
+  font-size: .9rem;
+  color: var(--muted);
+}
+
+.field {
+  display: block;
+  width: 100%;
+  min-height: 50px;
+  padding: 11px 14px;
+  border: 1.5px solid var(--control-line);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1.05rem;
+  transition: border-color .15s ease;
+}
+.field::placeholder { color: #6b8494; }
+@media (hover: hover) {
+  .field:hover { border-color: var(--lagoon-ink); }
+}
+.field:focus { border-color: var(--sea); outline: none; }
+.field:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.field[aria-invalid="true"] { border-color: var(--coral-ink); }
+
+.sub-label {
+  display: block;
+  margin: 16px 0 6px;
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* Chips: echte Inputs, visuell versteckt */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chip {
+  position: relative;
+  display: inline-flex;
+  max-width: 100%;
+}
+.chip input {
+  position: absolute;
+  top: 50%;
+  left: 18px;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+.chip span {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  max-width: 100%;
+  padding: 9px 16px 9px 13px;
+  border: 1.5px solid #9dbcc3;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: .98rem;
+  line-height: 1.2;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+.chip span::before {
+  content: "";
+  flex: none;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--control-line);
+  background: transparent;
+}
+.chip--radio span::before { border-radius: 50%; }
+.chip--check span::before { border-radius: 5px; }
+
+@media (hover: hover) {
+  .chip:hover span { border-color: var(--lagoon); }
+}
+.chip input:checked + span {
+  background: var(--sea-deep);
+  border-color: var(--sea-deep);
+  color: #fff;
+}
+.chip--radio input:checked + span::before {
+  border-color: var(--sun);
+  background: radial-gradient(circle, var(--sun) 0 4px, transparent 4.5px);
+}
+.chip--check input:checked + span::before {
+  border-color: var(--sun);
+  background: var(--sun) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='%230a2c4c' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 12px no-repeat;
+}
+.chip input:focus-visible + span {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.chips--big .chip span {
+  min-height: 52px;
+  padding: 12px 20px 12px 15px;
+  font-size: 1.05rem;
+}
+
+.chip span.pop { animation: pop .24s ease-out; }
+@keyframes pop {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+.error {
+  margin: 10px 0 0;
+  color: var(--coral-ink);
+  font-weight: 600;
+  font-size: .95rem;
+}
+.error:empty { margin: 0; }
+.q.is-invalid .qnum { color: var(--coral-ink); }
+
+.submit-row { padding-top: 8px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 12px 22px;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  font: inherit;
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color .15s ease, transform .1s ease;
+}
+.btn:focus-visible, .btn-text:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.btn:active { transform: translateY(1px); }
+.btn-primary {
+  background: var(--sea-deep);
+  color: #fff;
+}
+@media (hover: hover) {
+  .btn-primary:hover { background: var(--sea); }
+}
+.btn-submit {
+  width: 100%;
+  min-height: 58px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 800;
+  font-size: 1.45rem;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+.btn-submit .arrow { color: var(--sun); font-style: normal; }
+.btn-secondary {
+  background: var(--surface);
+  color: var(--sea-deep);
+  border-color: var(--sea-deep);
+}
+@media (hover: hover) {
+  .btn-secondary:hover { background: var(--lagoon-wash); }
+}
+.btn svg { flex: none; }
+
+.privacy {
+  margin: 14px 0 0;
+  font-size: .85rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Ergebnis */
+.result { padding-top: 14px; }
+.result h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(2.2rem, 10vw, 3rem);
+  line-height: .95;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+.result-note {
+  margin: 8px 0 18px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+.summary {
+  margin: 0 0 22px;
+  padding: 4px 16px;
+  background: var(--sand);
+  border-left: 4px solid var(--sun);
+  border-radius: 4px 12px 12px 4px;
+}
+.summary div {
+  padding: 10px 0;
+  border-top: 1px solid var(--sand-line);
+}
+.summary div:first-child { border-top: 0; }
+.summary dt {
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #7a5a24;
+}
+.summary dd {
+  margin: 2px 0 0;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.send-hint {
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+.preview-label {
+  margin: 0 0 6px;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--lagoon-ink);
+}
+.bubble {
+  margin: 0 0 18px;
+  padding: 12px 14px;
+  background: var(--lagoon-wash);
+  border: 1px solid #bfe5e1;
+  border-radius: 14px 14px 14px 4px;
+  font-size: .98rem;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  user-select: text;
+  -webkit-user-select: text;
+}
+.actions {
+  display: grid;
+  gap: 10px;
+}
+.copy-status {
+  margin: 8px 0 0;
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--lagoon-ink);
+}
+.copy-status:empty { margin: 0; }
+
+/* Ergebnis-Ansicht: Kopf kleiner, damit die Knöpfe auf dem Handy sofort sichtbar sind */
+body.is-done .lede,
+body.is-done .sun { display: none; }
+@media (max-width: 599px) {
+  body.is-done .hero { padding-bottom: 34px; }
+  .send-bar {
+    position: sticky;
+    bottom: 0;
+    z-index: 3;
+    margin: 0 calc(-1 * var(--gutter-r)) 0 calc(-1 * var(--gutter-l));
+    padding: 10px var(--gutter-r) max(10px, env(safe-area-inset-bottom, 0px)) var(--gutter-l);
+    background: var(--bg);
+    box-shadow: 0 -1px 0 var(--line);
+  }
+}
+.copy-status.is-warn { color: var(--coral-ink); }
+.btn-text {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 0;
+  padding: 8px 2px;
+  border: 0;
+  background: none;
+  color: var(--sea);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--lagoon);
+  cursor: pointer;
+}
+
+@media (min-width: 600px) {
+  .hero { padding-top: 40px; padding-bottom: 58px; }
+  .sun { width: 120px; height: 120px; bottom: 16px; }
+  .wave { height: 52px; }
+  .actions { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 359px) {
+  .sun { width: 72px; height: 72px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Unser Ägypten-Urlaub</p>
+    <h1>Wer macht mit mir <span class="hl">Sport?</span></h1>
+    <p class="lede">Dauert nur 30 Sekunden.</p>
+  </div>
+  <div class="sun" aria-hidden="true"></div>
+  <svg class="wave" viewBox="0 0 1200 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path class="w1" d="M0 20 C150 4 300 4 450 20 S750 36 900 20 S1100 6 1200 16 V48 H0 Z"/>
+    <path class="w2" d="M0 30 C150 14 300 14 450 30 S750 46 900 30 S1100 16 1200 26 V48 H0 Z"/>
+  </svg>
+</header>
+
+<main>
+  <form id="umfrage" class="wrap" novalidate tabindex="-1" aria-label="Umfrage">
+
+    <div class="q" id="q-name">
+      <label class="q-title" for="name"><span class="qnum" aria-hidden="true">01</span><span>Wie heißt du?</span></label>
+      <input class="field" type="text" id="name" name="name" required maxlength="40" autocomplete="given-name" autocapitalize="words" enterkeyhint="next" placeholder="Dein Vorname" aria-describedby="err-name">
+      <p class="error" id="err-name" aria-live="polite"></p>
+    </div>
+
+    <fieldset class="q" id="q-dabei" aria-describedby="err-dabei">
+      <legend class="q-title"><span class="qnum" aria-hidden="true">02</span><span>Bist du dabei?</span></legend>
+      <div class="chips chips--big">
+        <label class="chip chip--radio"><input type="radio" id="dabei-ja" name="dabei" value="ja" required><span>Ja, klar!</span></label>
+        <label class="chip chip--radio"><input type="radio" id="dabei-vielleicht" name="dabei" value="vielleicht"><span>Vielleicht</span></label>
+        <label class="chip chip--radio"><input type="radio" id="dabei-nein" name="dabei" value="nein"><span>Nein, ich chille lieber</span></label>
+      </div>
+      <p class="error" id="err-dabei" aria-live="polite"></p>
+    </fieldset>
+
+    <div id="sport-block">
+      <fieldset class="q" id="q-sport" aria-describedby="hint-sport err-sport">
+        <legend class="q-title"><span class="qnum" aria-hidden="true">03</span><span>Worauf hast du Lust?</span></legend>
+        <p class="hint" id="hint-sport">Such dir so viele aus, wie du willst.</p>
+        <div class="chips">
+          <label class="chip chip--check"><input type="checkbox" id="sport-schnorcheln" name="sport" value="schnorcheln"><span>Schnorcheln am Riff</span></label>
+          <label class="chip chip--check"><input type="checkbox" id="sport-tauchen" name="sport" value="tauchen"><span>Tauchen</span></label>
+          <label class="chip chip--check"><input type="checkbox" id="sport-schwimmen" name="sport" value="schwimmen"><span>Schwimmen</span></label>
+          <label class="chip chip--check"><input type="checkbox" id="sport-joggen" name="sport" value="joggen"><span>Joggen am Strand</span></label>
+          <label class="chip chip--check"><input type="checkbox" id="sport-beachvolleyball" name="sport" value="beachvolleyball"><span>Beachvolleyball</span></label>
+          <label class="chip chip--check"><input type="checkbox" id="sport-fitnessstudio" name="sport" value="fitnessstudio"><span>Fitnessstudio im Hotel</span></label>
+          <label class="chip chip--check"><input type="checkbox" id="sport-yoga" name="sport" value="yoga"><span>Yoga am Strand</span></label>
+          <label class="chip chip--check"><input type="checkbox" id="sport-sup" name="sport" value="sup"><span>Stand-up-Paddling</span></label>
+          <label class="chip chip--check"><input type="checkbox" id="sport-kitesurfen" name="sport" value="kitesurfen"><span>Kitesurfen</span></label>
+          <label class="chip chip--check"><input type="checkbox" id="sport-fussball" name="sport" value="fussball"><span>Fußball</span></label>
+          <label class="chip chip--check"><input type="checkbox" id="sport-tennis" name="sport" value="tennis"><span>Tennis / Padel</span></label>
+          <label class="chip chip--check"><input type="checkbox" id="sport-aquafitness" name="sport" value="aquafitness"><span>Aqua-Fitness</span></label>
+        </div>
+        <label class="sub-label" for="idea">Eigene Idee</label>
+        <input class="field" type="text" id="idea" name="idea" maxlength="60" autocomplete="off" enterkeyhint="done" placeholder="z. B. Wasserski" aria-describedby="err-sport">
+        <p class="error" id="err-sport" aria-live="polite"></p>
+      </fieldset>
+
+      <fieldset class="q" id="q-zeit" aria-describedby="hint-zeit">
+        <legend class="q-title"><span class="qnum" aria-hidden="true">04</span><span>Wann am liebsten?</span></legend>
+        <p class="hint" id="hint-zeit">Optional, mehrere gehen auch.</p>
+        <div class="chips">
+          <label class="chip chip--check"><input type="checkbox" id="zeit-frueh" name="zeit" value="frueh" data-short="früh morgens"><span>Früh morgens, bevor es heiß wird</span></label>
+          <label class="chip chip--check"><input type="checkbox" id="zeit-mittags" name="zeit" value="mittags" data-short="mittags"><span>Mittags</span></label>
+          <label class="chip chip--check"><input type="checkbox" id="zeit-nachmittag" name="zeit" value="nachmittag" data-short="am späten Nachmittag"><span>Am späten Nachmittag</span></label>
+          <label class="chip chip--check"><input type="checkbox" id="zeit-abends" name="zeit" value="abends" data-short="abends"><span>Abends</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="q" id="q-oft" aria-describedby="hint-oft">
+        <legend class="q-title"><span class="qnum" aria-hidden="true">05</span><span>Wie oft?</span></legend>
+        <p class="hint" id="hint-oft">Optional.</p>
+        <div class="chips">
+          <label class="chip chip--radio"><input type="radio" id="oft-jeden-tag" name="oft" value="jeden-tag" data-short="jeden Tag"><span>Jeden Tag</span></label>
+          <label class="chip chip--radio"><input type="radio" id="oft-paar-mal" name="oft" value="paar-mal" data-short="ein paar Mal"><span>Ein paar Mal</span></label>
+          <label class="chip chip--radio"><input type="radio" id="oft-einmal" name="oft" value="einmal" data-short="einmal reicht"><span>Einmal reicht</span></label>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="submit-row">
+      <button type="submit" id="submit-btn" class="btn btn-primary btn-submit">Antwort fertig machen <span class="arrow" aria-hidden="true">&rarr;</span></button>
+      <p class="privacy">Deine Antworten bleiben auf deinem Handy, bis du sie selbst schickst.</p>
+    </div>
+  </form>
+
+  <section id="result" class="wrap result" hidden aria-labelledby="result-title">
+    <h2 id="result-title" tabindex="-1">Danke, <span id="result-name"></span>!</h2>
+    <p class="result-note" id="result-note"></p>
+    <dl class="summary" id="summary"></dl>
+    <p class="send-hint">Schick deine Antwort in unsere Familiengruppe oder direkt an mich:</p>
+    <p class="preview-label" id="preview-label">So sieht deine Nachricht aus</p>
+    <div class="bubble" id="preview" role="group" aria-labelledby="preview-label"></div>
+    <div class="send-bar" id="send-bar">
+      <div class="actions">
+        <a id="wa-link" class="btn btn-primary" href="https://wa.me/" target="_blank" rel="noopener">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.3 21.7l4.8-1.3A9.8 9.8 0 1 0 12 2.2Zm0 17.8c-1.5 0-3-.4-4.2-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20Zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8.9c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.8 2c0 1.2.9 2.3 1 2.5.1.2 1.7 2.6 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2l-.4-.2Z"/></svg>
+          Per WhatsApp schicken
+        </a>
+        <button type="button" id="copy-btn" class="btn btn-secondary">Text kopieren</button>
+      </div>
+      <p class="copy-status" id="copy-status" aria-live="polite"></p>
+    </div>
+    <button type="button" id="edit-btn" class="btn-text">Antwort ändern</button>
+  </section>
+</main>
+
+<script>
+(function () {
+  'use strict';
+
+  var STORAGE_KEY = 'aegypten-sport-umfrage';
+
+  var form = document.getElementById('umfrage');
+  var nameInput = document.getElementById('name');
+  var ideaInput = document.getElementById('idea');
+  var sportBlock = document.getElementById('sport-block');
+  var result = document.getElementById('result');
+  var resultName = document.getElementById('result-name');
+  var resultTitle = document.getElementById('result-title');
+  var resultNote = document.getElementById('result-note');
+  var summary = document.getElementById('summary');
+  var preview = document.getElementById('preview');
+  var waLink = document.getElementById('wa-link');
+  var copyBtn = document.getElementById('copy-btn');
+  var copyStatus = document.getElementById('copy-status');
+  var editBtn = document.getElementById('edit-btn');
+
+  var errName = document.getElementById('err-name');
+  var errDabei = document.getElementById('err-dabei');
+  var errSport = document.getElementById('err-sport');
+
+  var DABEI_LABELS = { ja: 'Ja, klar!', vielleicht: 'Vielleicht', nein: 'Nein, ich chille lieber' };
+  var NOTES = {
+    ja: 'Stark, ich freu mich!',
+    vielleicht: 'Cool – wir schauen dann spontan vor Ort.',
+    nein: 'Kein Problem – dann sehen wir uns am Pool.'
+  };
+
+  var attempted = false;
+  var currentMessage = '';
+
+  var reduceMotion = false;
+  try {
+    reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  } catch (e) { /* egal */ }
+
+  /* Speicher */
+  function loadSaved() {
+    try {
+      var raw = window.localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch (e) {
+      return null;
+    }
+  }
+  function save() {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(readState()));
+    } catch (e) { /* ohne Speicher geht es auch */ }
+  }
+
+  /* Formular lesen / schreiben */
+  function inputs(name) {
+    return Array.prototype.slice.call(form.querySelectorAll('input[name="' + name + '"]'));
+  }
+  function checked(name) {
+    return inputs(name).filter(function (el) { return el.checked; });
+  }
+  function labelOf(input) {
+    return input.nextElementSibling ? input.nextElementSibling.textContent.trim() : input.value;
+  }
+  function cleanText(value) {
+    return String(value || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function readState() {
+    var dabei = checked('dabei')[0];
+    var oft = checked('oft')[0];
+    return {
+      name: nameInput.value,
+      dabei: dabei ? dabei.value : '',
+      sport: checked('sport').map(function (el) { return el.value; }),
+      idea: ideaInput.value,
+      zeit: checked('zeit').map(function (el) { return el.value; }),
+      oft: oft ? oft.value : ''
+    };
+  }
+
+  function applyState(s) {
+    if (!s || typeof s !== 'object') return;
+    if (typeof s.name === 'string') nameInput.value = s.name.slice(0, 40);
+    if (typeof s.idea === 'string') ideaInput.value = s.idea.slice(0, 60);
+    ['dabei', 'oft'].forEach(function (group) {
+      inputs(group).forEach(function (el) { el.checked = (s[group] === el.value); });
+    });
+    ['sport', 'zeit'].forEach(function (group) {
+      var list = Array.isArray(s[group]) ? s[group] : [];
+      inputs(group).forEach(function (el) { el.checked = list.indexOf(el.value) !== -1; });
+    });
+  }
+
+  function isNein() {
+    var d = checked('dabei')[0];
+    return !!d && d.value === 'nein';
+  }
+
+  function updateVisibility() {
+    sportBlock.hidden = isNein();
+    if (sportBlock.hidden) setError('q-sport', errSport, '');
+  }
+
+  /* Validierung */
+  function setError(qId, errEl, text) {
+    var q = document.getElementById(qId);
+    errEl.textContent = text;
+    if (q) q.classList.toggle('is-invalid', !!text);
+  }
+
+  function validate() {
+    var problems = [];
+
+    if (!cleanText(nameInput.value)) {
+      setError('q-name', errName, 'Sag kurz, wie du heißt.');
+      nameInput.setAttribute('aria-invalid', 'true');
+      problems.push({ block: 'q-name', focus: nameInput });
+    } else {
+      setError('q-name', errName, '');
+      nameInput.removeAttribute('aria-invalid');
+    }
+
+    var dabei = checked('dabei')[0];
+    if (!dabei) {
+      setError('q-dabei', errDabei, 'Wähl bitte aus, ob du dabei bist.');
+      problems.push({ block: 'q-dabei', focus: inputs('dabei')[0] });
+    } else {
+      setError('q-dabei', errDabei, '');
+    }
+
+    var needsSport = !dabei || dabei.value !== 'nein';
+    if (dabei && needsSport && checked('sport').length === 0 && !cleanText(ideaInput.value)) {
+      setError('q-sport', errSport, 'Such dir mindestens eine Sportart aus – oder schreib deine eigene Idee rein.');
+      problems.push({ block: 'q-sport', focus: inputs('sport')[0] });
+    } else {
+      setError('q-sport', errSport, '');
+    }
+
+    return problems;
+  }
+
+  function goTo(problem) {
+    var block = document.getElementById(problem.block);
+    if (block && block.scrollIntoView) {
+      block.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    }
+    try {
+      problem.focus.focus({ preventScroll: true });
+    } catch (e) {
+      problem.focus.focus();
+    }
+  }
+
+  /* Nachricht bauen */
+  function buildAnswer() {
+    var dabeiEl = checked('dabei')[0];
+    var dabei = dabeiEl ? dabeiEl.value : '';
+    var name = cleanText(nameInput.value);
+    var idea = cleanText(ideaInput.value);
+    var sportLabels = checked('sport').map(labelOf);
+    var zeitEls = checked('zeit');
+    var oftEl = checked('oft')[0];
+
+    var rows = [{ k: 'Dabei', v: DABEI_LABELS[dabei] }];
+    var lines = ['Sport im Ägypten-Urlaub 🏝️', 'Name: ' + name, 'Dabei: ' + DABEI_LABELS[dabei]];
+
+    if (dabei === 'nein') {
+      lines.push('Wir sehen uns am Pool!');
+    } else {
+      var lust;
+      if (sportLabels.length) {
+        lust = sportLabels.join(', ') + (idea ? ', Idee: ' + idea : '');
+      } else {
+        lust = idea + ' (eigene Idee)';
+      }
+      var lustReadable = sportLabels.slice();
+      if (idea) lustReadable.push('Eigene Idee: ' + idea);
+      rows.push({ k: 'Lust auf', v: lustReadable.join(', ') });
+      lines.push('Lust auf: ' + lust);
+
+      if (zeitEls.length) {
+        var zeitShort = zeitEls.map(function (el) { return el.getAttribute('data-short'); }).join(', ');
+        rows.push({ k: 'Am liebsten', v: zeitShort.charAt(0).toUpperCase() + zeitShort.slice(1) });
+        lines.push('Am liebsten: ' + zeitShort);
+      }
+      if (oftEl) {
+        rows.push({ k: 'Wie oft', v: labelOf(oftEl) });
+        lines.push('Wie oft: ' + oftEl.getAttribute('data-short'));
+      }
+    }
+
+    return { name: name, dabei: dabei, rows: rows, message: lines.join('\n') };
+  }
+
+  function showResult() {
+    var a = buildAnswer();
+    currentMessage = a.message;
+
+    resultName.textContent = a.name;
+    resultNote.textContent = NOTES[a.dabei] || '';
+
+    while (summary.firstChild) summary.removeChild(summary.firstChild);
+    a.rows.forEach(function (row) {
+      var wrap = document.createElement('div');
+      var dt = document.createElement('dt');
+      var dd = document.createElement('dd');
+      dt.textContent = row.k;
+      dd.textContent = row.v;
+      wrap.appendChild(dt);
+      wrap.appendChild(dd);
+      summary.appendChild(wrap);
+    });
+
+    preview.textContent = a.message;
+    waLink.href = 'https://wa.me/?text=' + encodeURIComponent(a.message);
+    copyStatus.textContent = '';
+    copyStatus.classList.remove('is-warn');
+
+    form.hidden = true;
+    result.hidden = false;
+    document.body.classList.add('is-done');
+    window.scrollTo(0, 0);
+    try {
+      resultTitle.focus({ preventScroll: true });
+    } catch (e) {
+      resultTitle.focus();
+    }
+  }
+
+  function showForm() {
+    result.hidden = true;
+    form.hidden = false;
+    document.body.classList.remove('is-done');
+    var top = form.getBoundingClientRect().top + window.pageYOffset;
+    window.scrollTo(0, Math.max(0, top - 8));
+    try {
+      form.focus({ preventScroll: true });
+    } catch (e) {
+      form.focus();
+    }
+  }
+
+  /* Kopieren */
+  function selectPreview() {
+    try {
+      var range = document.createRange();
+      range.selectNodeContents(preview);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+  function copyFallback() {
+    var ok = false;
+    if (selectPreview()) {
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    }
+    if (ok) {
+      setCopyStatus('Kopiert! Jetzt einfach in WhatsApp einfügen.', false);
+    } else {
+      if (preview.scrollIntoView) preview.scrollIntoView({ block: 'center' });
+      setCopyStatus('Kopieren hat nicht geklappt. Der Text ist markiert – kopier ihn einfach selbst.', true);
+    }
+  }
+  function setCopyStatus(text, warn) {
+    copyStatus.textContent = text;
+    copyStatus.classList.toggle('is-warn', !!warn);
+  }
+
+  copyBtn.addEventListener('click', function () {
+    var text = currentMessage;
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+      navigator.clipboard.writeText(text).then(function () {
+        setCopyStatus('Kopiert! Jetzt einfach in WhatsApp einfügen.', false);
+      }, copyFallback);
+    } else {
+      copyFallback();
+    }
+  });
+
+  editBtn.addEventListener('click', showForm);
+
+  /* Ereignisse */
+  form.addEventListener('change', function (e) {
+    var t = e.target;
+    if (t && t.checked && t.nextElementSibling && t.closest && t.closest('.chip') && !reduceMotion) {
+      var span = t.nextElementSibling;
+      span.classList.remove('pop');
+      void span.offsetWidth;
+      span.classList.add('pop');
+    }
+    if (t && t.name === 'dabei') updateVisibility();
+    if (attempted) validate();
+    save();
+  });
+  form.addEventListener('input', function () {
+    if (attempted) validate();
+    save();
+  });
+  form.addEventListener('animationend', function (e) {
+    if (e.target && e.target.classList) e.target.classList.remove('pop');
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    attempted = true;
+    nameInput.value = cleanText(nameInput.value);
+    ideaInput.value = cleanText(ideaInput.value);
+    var problems = validate();
+    save();
+    if (problems.length) {
+      goTo(problems[0]);
+      return;
+    }
+    showResult();
+  });
+
+  /* Enter in Textfeldern schickt nicht ab: "Weiter" springt zu Frage 2, "Fertig" schließt nur die Tastatur */
+  nameInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.isComposing) {
+      e.preventDefault();
+      (checked('dabei')[0] || inputs('dabei')[0]).focus();
+    }
+  });
+  ideaInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.isComposing) {
+      e.preventDefault();
+      ideaInput.blur();
+    }
+  });
+
+  /* Start */
+  applyState(loadSaved());
+  updateVisibility();
+})();
+</script>
+</body>
+</html>
